@@ -1,24 +1,29 @@
 <p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="well">
+        <h4>Name: <%= @cat.name %></h4>
+        <p>
+          <strong>Picture:</strong>
+          <%= image_tag @cat.picture, class: "img-responsive"%>
+        </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @cat.name %>
-</p>
+        <p>
+          <strong>Description:</strong>
+          <%= @cat.description %>
+        </p>
 
-<p>
-  <strong>Picture:</strong>
-  <%= image_tag @cat.picture %>
-</p>
+        <p>
+          <strong>Age:</strong>
+          <%= @cat.age %>
+        </p>
+      </div>
+      <%= link_to 'Edit', edit_cat_path(@cat) %> |
+      <%= link_to 'Back', cats_path %>
+    </div>
+  </div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @cat.description %>
-</p>
 
-<p>
-  <strong>Age:</strong>
-  <%= @cat.age %>
-</p>
 
-<%= link_to 'Edit', edit_cat_path(@cat) %> |
-<%= link_to 'Back', cats_path %>
+</div>
