@@ -6,7 +6,9 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <p>Gatunos</p>
+    <% if user_signed_in?%>
+    <p>Bienvenido! <%=current_user.name%> <%=image_tag current_user.avatar, class:"img-circle avatar"%></p>
+    <% end %>
   </div>
   <div class="collapse navbar-collapse" id="#gatunos">
     <ul class="nav navbar-nav navbar-right">
