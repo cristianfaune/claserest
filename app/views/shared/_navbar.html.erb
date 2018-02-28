@@ -1,25 +1,38 @@
 <nav class="navbar navbar-default navbar-fixed-top">
-  <div class="navbar-header">
-    <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#gatunos">
-      <span class="sr-only">Desplegar</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <span class="navbar-brand"><%=image_tag current_user.avatar, class: "inset"%></span>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <% if user_signed_in?%>
-    <p>Bienvenido! <%=current_user.name%> <%=image_tag current_user.avatar, class:"img-circle avatar"%></p>
-    <% end %>
-  </div>
-  <div class="collapse navbar-collapse" id="#gatunos">
-    <ul class="nav navbar-nav navbar-right">
-      <!--agregar palabra path y metodos-->
-      <% if user_signed_in?%>
-      <li><%= link_to 'Cerrar Sesión', destroy_user_session_path, method: :delete %></li>
-      <li><%= link_to 'Editar Perfil', edit_user_registration_path %></li>
-      <%else%>
-      <li><%= link_to 'Registrarse', new_user_registration_path %></li>
-      <li><%= link_to 'Ingresar', new_user_session_path %></li>
-      <% end %>
-    </ul>
-  </div>
+      <ul class="nav navbar-nav">
+          <li><p>Bienvenid@! <%=current_user.name%></p></li>
+        </ul>
+        <% end %>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+          <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Mi Cuenta
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <% if user_signed_in?%>
+            <li><%= link_to ' Home', cats_path, class:"glyphicon glyphicon-home"%></li>
+            <li><%= link_to ' Agregar nuevo', new_cat_path, class:"glyphicon glyphicon-save"%></li>
+            <li><%= link_to ' Editar Perfil', edit_user_registration_path, class:"glyphicon glyphicon-edit" %></li>
+            <li><%= link_to ' Cerrar Sesión', destroy_user_session_path, method: :delete, class:"glyphicon glyphicon-off" %></li>
+            <% end %>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
 </nav>

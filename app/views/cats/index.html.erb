@@ -1,28 +1,20 @@
-<p id="notice"><%= notice %></p>
-
 <h1 class="text-center">Cats</h1>
 
 <div class="container">
-  <div class="col-md-6 col-md-offset-3">
-      <%= link_to 'Add New Cat', new_cat_path%>
-      <span class="glyphicon glyphicon-save" aria-hidden="true"></span>
-    <div class="row">
-      <% @cats.each do |cat| %>
+  <div class="row">
+    <% @cats.each do |cat| %>
+    <div class="col-md-4">
       <div class="well">
         <h3><%= cat.name %></h3>
         <%= image_tag cat.picture, class: "img-responsive" %>
         <blockquote>
           <%= cat.description %>
         </blockquote>
-        <%= link_to 'Show', cat, class: "btn btn-primary" %></td>
+        <%= link_to 'Show', cat, class: "btn btn-primary" %>
         <%= link_to 'Edit', edit_cat_path(cat), class: "btn btn-success" %>
         <%= link_to 'Destroy', cat, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
       </div>
-      <% end %>
     </div>
+    <% end %>
   </div>
 </div>
-
-
-
-<br>
