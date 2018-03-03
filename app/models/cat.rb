@@ -3,4 +3,6 @@ class Cat < ApplicationRecord
 
   validates :name, uniqueness: true
 
+  mount_uploader :picture, AvatarUploader
+
 end
